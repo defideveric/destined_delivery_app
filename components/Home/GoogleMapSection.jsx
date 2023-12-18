@@ -1,9 +1,8 @@
 import React from 'react'
 
-const GoogleMapSection = () => {
+export default function GoogleMapSection() {
   return (
     <div>GoogleMapSection</div>
   )
 }
 
-export default GoogleMapSection
