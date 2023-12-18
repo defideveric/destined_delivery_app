@@ -1,12 +1,16 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import { DestinationContext } from '@/context/DestinationContext';
+import { SourceContext } from '@/context/SourceContext';
 
 export default function InputItem({ type }) {
 
   const [value, setValue] = useState(null);
   const [placeholder, setPlaceholder] = useState(null);
+  const {source, setSource} = useContext(SourceContext);
+  const {destination, setDestination} = useContext(DestinationContext);
 
   useEffect(() => {
     type=='source'
@@ -21,6 +25,24 @@ export default function InputItem({ type }) {
       if(status=== "OK" && place.geometry && place.geometry.location) 
       {
         console.log(place.geometry.location.lat());
+        if(type== 'source')
+        {
+          setSource({
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng(),
+            name: place.formatted_address,
+            label: place.name
+          })
+
+        } else {
+          setDestination({
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng(),
+            name: place.formatted_address,
+            label: place.name
+          })
+
+        }
       }
     });
   };
