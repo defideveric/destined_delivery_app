@@ -1,5 +1,8 @@
-import React from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+"use client"
+import React, { useContext, useEffect, useState } from 'react';
+import { GoogleMap, MarkerF } from '@react-google-maps/api';
+import { DestinationContext } from '@/context/DestinationContext';
+import { SourceContext } from '@/context/SourceContext';
 
 export default function GoogleMapSection() {
 
@@ -7,18 +10,42 @@ export default function GoogleMapSection() {
     width: '100%',
     height: window.innerWidth*0.5
   };
+
+  const {source, setSource} = useContext(SourceContext);
+  const {destination, setDestination} = useContext(DestinationContext);
   
-  const center = {
+  const [center, setCenter] = useState({
     lat: -3.745,
     lng: -38.523
-  };
-  
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY
-  })
+  });
 
-  const [map, setMap] = React.useState(null)
+  const [map, setMap] = React.useState(null);
+
+  useEffect(() => {
+    if(source?.length!=[]&&map)
+    {
+      map.panTo(
+        {
+        lat: source.lat,
+        lng:source.lng
+        }
+      )
+      setCenter({
+        lat: source.lat,
+        lng:source.lng
+      })
+    }
+  }, [source])
+
+  useEffect(() => {
+    if(destination?.length!=[]&&map)
+    {
+      setCenter({
+        lat: destination.lat,
+        lng:destination.lng
+      })
+    }
+  }, [destination])
 
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
@@ -32,7 +59,7 @@ export default function GoogleMapSection() {
     setMap(null)
   }, [])
 
-  return isLoaded ? (
+  return (
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -41,9 +68,10 @@ export default function GoogleMapSection() {
         onUnmount={onUnmount}
         options={{mapId: '34b94c1701e6dd39'}}
       >
-        { /* Child components, such as markers, info windows, etc. */ }
+        {source.length!=[]? <MarkerF 
+          position={{lat:source.lat, lng:source.lng}}/>:null}
         <></>
       </GoogleMap>
-  ) : <></>
+  )
 }
 

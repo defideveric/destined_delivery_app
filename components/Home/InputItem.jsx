@@ -19,7 +19,7 @@ export default function InputItem({ type }) {
   },[]);
 
   const getLatAndLong = (place, type) => {
-    const placeId = place.value.place_id;
+    const placeId = place?.value.place_id;
     const service = new google.maps.places.PlacesService(document.createElement('div'))
     service.getDetails({ placeId }, (place, status) => {
       if(status=== "OK" && place.geometry && place.geometry.location) 
@@ -51,7 +51,6 @@ export default function InputItem({ type }) {
     <div className='bg-slate-200 p-3 rounded-lg mt-3 flex items-center gap-4'>
       <Image src={type== 'source' ? '/source.png' : '/dest.png'} alt='source' width={15} height={15}/>
         <GooglePlacesAutocomplete
-          apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
           selectProps={{
               value,
               onChange: (place)=>{getLatAndLong(place, type); setValue(place)},
