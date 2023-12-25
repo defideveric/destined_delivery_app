@@ -2,8 +2,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
-import { DestinationContext } from '@/context/DestinationContext';
-import { SourceContext } from '@/context/SourceContext';
+import { DestinationContext } from '/context/DestinationContext';
+import { SourceContext } from '/context/SourceContext';
 
 export default function InputItem({ type }) {
 

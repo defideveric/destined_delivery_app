@@ -1,6 +1,6 @@
 import { ClerkProvider } from '@clerk/nextjs';
 import { Inter, Montserrat } from 'next/font/google';
-import Header from '@/components/Header';
+import Header from '/components/Header';
 import './globals.css';
 
 

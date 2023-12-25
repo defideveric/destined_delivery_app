@@ -1,10 +1,10 @@
 "use client"
 import { useState } from 'react';
-import GoogleMapSection from '@/components/Home/GoogleMapSection';
-import SearchSection from '@/components/Home/SearchSection';
-import { DestinationContext } from '@/context/DestinationContext';
-import { SourceContext } from '@/context/SourceContext';
+import { DestinationContext } from '/context/DestinationContext';
+import { SourceContext } from '/context/SourceContext';
 import { LoadScript } from '@react-google-maps/api';
+import GoogleMapSection from '/components/Home/GoogleMapSection.jsx';
+import SearchSection from '/components/Home/SearchSection.jsx';
 
 
 export default function Home() {

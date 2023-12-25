@@ -1,8 +1,8 @@
 "use client"
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import InputItem from './InputItem';
-import { DestinationContext } from '@/context/DestinationContext';
-import { SourceContext } from '@/context/SourceContext';
+import { DestinationContext } from '/context/DestinationContext';
+import { SourceContext } from '/context/SourceContext';
 import CarListOptions from './CarListOptions';
 
 export default function SearchSection() {
