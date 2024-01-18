@@ -58,7 +58,7 @@ export default function GoogleMapSection() {
     }
   }, [destination])
 
-
+  //for drawing route on map
   const directionRoute=() => {
     const DirectionService = new google.maps.DirectionsService();
 
