@@ -96,7 +96,7 @@ export default function GoogleMapSection() {
         zoom={10}
         onLoad={onLoad}
         onUnmount={onUnmount}
-        options={{mapId: '34b94c1701e6dd39'}}
+        options={{mapId: 'f172bececab93f8a'}}
       >
         {source.length!=[]? 
         <MarkerF 

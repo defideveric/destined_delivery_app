@@ -27,7 +27,7 @@ export default function Header() {
           {headerMenu.map((item) => (
             <div key={item.id} className='flex gap-2 items-center'>
               <Image src={item.icon} width={17} height={17} />
-              <h2 className='text-[14px] font-medium'>{item.name}</h2>
+              <h2 className='text-[11px] font-medium mr-5'>{item.name}</h2>
             </div>
           ))}
         </div>

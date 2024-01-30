@@ -6,7 +6,7 @@ export default function CarListItem({ car, distance, flatRate }) {
   return (
     <div>
         <div className='flex items-center justify-between mt-5'>
-        <div className='flex items-center gap-5'>
+        <div className='flex items-center gap-15'>
             <Image src={car.image}
                 width={100} height={100}/>
                 <div>
@@ -20,7 +20,7 @@ export default function CarListItem({ car, distance, flatRate }) {
                     <p className='font-light'>{car.desc}</p>
                 </div>
         </div>
-                <h2 className='text-[18px] font-semibold'>${(car.amount*distance+flatRate).toFixed(2)}</h2>
+                <h2 className='text-[18px] font-semibold flex flex-col'>${(car.amount*distance+flatRate).toFixed(2)}</h2>
         </div>
     </div>
   )

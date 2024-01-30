@@ -41,7 +41,7 @@ export default function SearchSection() {
   return (
     <div>
 
-      <div className='p-2 md:p-5 border-[2px] rounded-xl'>
+      <div className='ml-5 p-2 md:p-5 border-[2px] rounded-xl'>
           <p className='text-[20px] font-bold'>Get a ride</p>
           <InputItem type="source"/>
           <InputItem type="destination"/>

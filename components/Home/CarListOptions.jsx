@@ -24,14 +24,20 @@ export default function CarListOptions({ distance, flatRate }) {
           </div>
       ))}
 
-     {selectedCar?.name ? <div className='flex justify-between fixed bottom-5 bg-white p-2 shadow-xl w-full md:w-[30%] border-[1px] items-center rounded-lg'>
-        <h2>Make Payment For</h2>
-        <button className='p-3 bg-black text-white rounded-lg text-center'
-          onClick={() => router.push('/payment?amount=' + (selectedCar.amount*distance+flatRate).toFixed(2)) 
-          }>
-          Request {selectedCar.name}
-        </button>
-      </div> : null }
+      {selectedCar?.name ? (
+  <div className='bottom-0 left-0 bg-white p-2 shadow-xl border-[1px] rounded-t-lg md:rounded-lg'>
+    <div className='flex justify-between items-center'>
+      <h2 className='text-lg'>Make Payment For</h2>
+      <button
+        className='p-3 bg-black ml-6 text-white rounded-lg text-center'
+        onClick={() => router.push('/payment?amount=' + (selectedCar.amount * distance + flatRate).toFixed(2))}
+      >
+        Request {selectedCar.name}
+      </button>
+    </div>
+  </div>
+) : null}
+
     </div>
   )
 }
