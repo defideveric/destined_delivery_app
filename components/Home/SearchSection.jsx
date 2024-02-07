@@ -45,6 +45,7 @@ export default function SearchSection() {
           <p className='text-[20px] font-bold'>Get a ride</p>
           <InputItem type="source"/>
           <InputItem type="destination"/>
+          <p className='text-center text-xs text-red-700 p-2'>DISCLAIMER: Always set drop off location to Destined Headquarters 1244 E 7th St. Los Angeles, CA 90021</p>
 
           <button className='p-3 bg-black w-full mt-5 text-white rounded-lg'
             onClick={() =>calculateDistance()}>

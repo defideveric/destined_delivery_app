@@ -15,8 +15,8 @@ export default function GoogleMapSection() {
   const {destination, setDestination} = useContext(DestinationContext);
   
   const [center, setCenter] = useState({
-    lat: -3.745,
-    lng: -38.523
+    lat: 34.036700,
+    lng: -118.241140
   });
 
   const [map, setMap] = React.useState(null);
